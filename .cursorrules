@@ -1,0 +1,207 @@
+# Legal Semantic Search - Frontend Development Rules
+
+## 🎯 Project Overview
+This is a legal semantic search application frontend built with Next.js 14, TypeScript, Tailwind CSS, and Shadcn/ui. The project enables lawyers and legal professionals to perform intelligent document searches using AI-powered semantic analysis.
+
+## 🛠️ Tech Stack
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS + Shadcn/ui components
+- **State Management**: Zustand or React Context
+- **Authentication**: Supabase Auth
+- **API Integration**: Supabase + DigitalOcean Gradient AI
+- **Icons**: Lucide React
+- **Forms**: React Hook Form + Zod validation
+
+## 📁 Project Structure
+```
+legal-semantic-search-frontend/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── (auth)/            # Auth routes
+│   │   ├── dashboard/         # Main dashboard
+│   │   ├── search/            # Search functionality
+│   │   ├── documents/         # Document management
+│   │   └── layout.tsx         # Root layout
+│   ├── components/            # Reusable components
+│   │   ├── ui/               # Shadcn/ui components
+│   │   ├── forms/            # Form components
+│   │   ├── search/           # Search-related components
+│   │   └── layout/           # Layout components
+│   ├── lib/                  # Utilities and configurations
+│   │   ├── utils.ts          # General utilities
+│   │   ├── validations.ts    # Zod schemas
+│   │   └── supabase.ts       # Supabase client
+│   ├── hooks/                # Custom React hooks
+│   ├── types/                # TypeScript type definitions
+│   └── styles/               # Global styles
+```
+
+## 🎨 Design System & UI Guidelines
+
+### Color Palette
+- **Primary**: Blue (#3B82F6) - Trust, professionalism
+- **Secondary**: Indigo (#6366F1) - Intelligence, depth
+- **Accent**: Emerald (#10B981) - Success, growth
+- **Warning**: Amber (#F59E0B) - Caution, attention
+- **Error**: Red (#EF4444) - Errors, alerts
+- **Neutral**: Gray scale (#F8FAFC to #0F172A)
+
+### Typography
+- **Headings**: Inter font family, font-weight 600-700
+- **Body**: Inter font family, font-weight 400-500
+- **Code**: JetBrains Mono or Fira Code
+
+### Component Standards
+- Use Shadcn/ui components as base
+- Follow atomic design principles
+- Implement proper loading states
+- Include error boundaries
+- Ensure accessibility (ARIA labels, keyboard navigation)
+
+## 🔧 Development Rules
+
+### Code Style
+- Use TypeScript strict mode
+- Prefer functional components with hooks
+- Use const assertions for immutable data
+- Implement proper error handling
+- Write self-documenting code with clear variable names
+
+### Component Guidelines
+```typescript
+// ✅ Good component structure
+interface SearchResultsProps {
+  results: SearchResult[];
+  isLoading: boolean;
+  onResultClick: (result: SearchResult) => void;
+}
+
+export const SearchResults: React.FC<SearchResultsProps> = ({
+  results,
+  isLoading,
+  onResultClick
+}) => {
+  // Component logic
+  return (
+    <div className="space-y-4">
+      {/* Component JSX */}
+    </div>
+  );
+};
+```
+
+### State Management
+- Use Zustand for global state
+- Use React Context for component-specific state
+- Implement optimistic updates for better UX
+- Cache API responses appropriately
+
+### API Integration
+- Use Supabase client for database operations
+- Implement proper error handling for API calls
+- Use React Query for data fetching and caching
+- Implement retry logic for failed requests
+
+### Performance Optimization
+- Use React.memo for expensive components
+- Implement code splitting with dynamic imports
+- Optimize images with Next.js Image component
+- Use proper loading states and skeletons
+
+## 🚀 Feature-Specific Guidelines
+
+### Search Functionality
+- Implement debounced search input
+- Show search suggestions as user types
+- Display search results with relevance scores
+- Include filters for document types, dates, etc.
+- Implement search history
+
+### Document Management
+- Support multiple file formats (PDF, DOCX, TXT)
+- Implement drag-and-drop upload
+- Show upload progress
+- Display document metadata
+- Enable document preview
+
+### Authentication & Authorization
+- Use Supabase Auth for user management
+- Implement role-based access control
+- Protect sensitive routes
+- Handle authentication states properly
+
+### Dashboard & Analytics
+- Create responsive dashboard layout
+- Implement data visualization with charts
+- Show user activity and search analytics
+- Include document statistics
+
+## 📱 Responsive Design
+- Mobile-first approach
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Test on various screen sizes
+- Implement touch-friendly interactions
+
+## ♿ Accessibility
+- Use semantic HTML elements
+- Implement proper ARIA labels
+- Ensure keyboard navigation
+- Maintain color contrast ratios
+- Test with screen readers
+
+## 🧪 Testing Strategy
+- Write unit tests for utility functions
+- Test component behavior with React Testing Library
+- Implement integration tests for critical flows
+- Use Playwright for E2E testing
+
+## 🔒 Security Considerations
+- Sanitize user inputs
+- Implement CSRF protection
+- Use secure authentication methods
+- Validate data on both client and server
+- Implement rate limiting for API calls
+
+## 📦 Dependencies Management
+- Keep dependencies up to date
+- Use exact versions for critical packages
+- Implement proper tree shaking
+- Monitor bundle size
+
+## 🚀 Deployment
+- Use Vercel for deployment
+- Implement proper environment variables
+- Set up CI/CD pipeline
+- Monitor performance and errors
+
+## 💡 Best Practices
+- Write clean, readable code
+- Use meaningful commit messages
+- Implement proper error boundaries
+- Follow the DRY principle
+- Document complex logic
+- Use TypeScript for type safety
+- Implement proper loading states
+- Optimize for performance
+- Test thoroughly before deployment
+
+## 🎯 Success Metrics
+- Page load time < 2 seconds
+- Search response time < 500ms
+- 99.9% uptime
+- Mobile responsiveness score > 95
+- Accessibility score > 90
+- Lighthouse performance score > 90
+
+## 🔄 Code Review Checklist
+- [ ] TypeScript types are properly defined
+- [ ] Components are properly tested
+- [ ] Error handling is implemented
+- [ ] Loading states are included
+- [ ] Accessibility requirements are met
+- [ ] Performance is optimized
+- [ ] Code follows project conventions
+- [ ] Documentation is updated
+
+Remember: This is a legal application, so prioritize security, data privacy, and user trust in all implementations.
